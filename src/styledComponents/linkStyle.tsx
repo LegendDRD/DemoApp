@@ -5,6 +5,7 @@ export const Link = styled.a`
    font-weight:400;
    cursor:pointer;
    color: #0b2027;
+   transition: all .1s ease;
    &:hover{
 
     font-size:15px;

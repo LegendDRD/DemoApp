@@ -60,11 +60,23 @@ export default function Login() {
             });
     }
 
+    const orghandleKeyDown = (event: any) => {
+        console.log('User pressed:', event.key);
+        if (event.key === 'Enter') {
+            orgloginSubmit();
+        }
+    };
+    const userhandleKeyDown = (event: any) => {
+        console.log('User pressed:', event.key);
+        if (event.key === 'Enter') {
+            userloginSubmit();
+        }
+    };
 
 
     return (
         <>
-            <BgImage50>
+            <BgImage50 >
                 <Modal>
                     <CenterDiv>
                         <ReactLogo width="50%" />
@@ -97,7 +109,7 @@ export default function Login() {
                         :
                         <> {(orgLogin) ?
                             <> {/*ORG login */}
-                                <CenterDiv>
+                                <CenterDiv onKeyDown={orghandleKeyDown}>
                                     <TenSpacer />
                                     <p>Corporate login</p>
                                     {(failedLogin) ? <Error>The credentials you entered are invalid! Please try again.</Error> : <></>}
@@ -121,7 +133,7 @@ export default function Login() {
                             :
                             <>
                                 {/*User login */}
-                                <CenterDiv>
+                                <CenterDiv onKeyDown={userhandleKeyDown}>
                                     <TenSpacer />
                                     <p>User login</p>
                                     {(failedLogin) ? <Error>The credentials you entered are invalid! Please try again.</Error> : <></>}

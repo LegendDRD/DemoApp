@@ -8,22 +8,18 @@ export default function Organisation() {
     const [listUser, setListUser] = useState([])
 
     useEffect(() => {
-        console.log(localStorage.getItem('Auth'))
+
         if (localStorage.getItem('Auth')) {
             let accessToken: any = ''
             accessToken = localStorage.getItem('Auth')
-            setAuth(accessToken);
-            console.log(accessToken)
-            axios.get(`${process.env.REACT_APP_API_URL}org`, { headers: { Authentication: `Bearer ${accessToken}` } })
+            setAuth(accessToken)
+            axios.get(`${process.env.REACT_APP_API_URL}org`, { headers: { Authorization: `Bearer ${accessToken}` } })
                 .then(function (response) {
-                    // setFailedLogin(false);
-                    // localStorage.setItem('Auth', response.data.accessToken);
-                    // nav('/login');
-                    // setReg(true);
+
                     setListUser(response.data)
                 })
                 .catch(function (error) {
-                    // setFailedLogin(true);
+
                     console.log(error);
                 });
 
@@ -32,10 +28,19 @@ export default function Organisation() {
         }
     }, [nav]);
 
-    useEffect(() => {
-
-    }, [nav]);
-
+    function userDelete(itemInfo: any) {
+        axios.delete(`${process.env.REACT_APP_API_URL}org/${itemInfo.id}`, { headers: { Authorization: `Bearer ${auth}` } })
+            .then(function (response) {
+                // setFailedLogin(false);
+                // localStorage.setItem('Auth', response.data.accessToken);
+                // nav('/login');
+                // setReg(true);
+            })
+            .catch(function (error) {
+                // setFailedLogin(true);
+                console.log(error);
+            });
+    }
 
 
     return (
@@ -43,7 +48,7 @@ export default function Organisation() {
             <h1>Org HomePage</h1>
 
             {listUser.map((item: any, index) => {
-                return <div key={index} >{item.name}</div>
+                return <div key={index} >{item.name} {item.surname} {item.email}  {item.residence} {item.country} {item.limit} {item.created_at} <button onClick={() => { userDelete(item) }}>Delete</button> </div>
             })}
             <></>
         </>
