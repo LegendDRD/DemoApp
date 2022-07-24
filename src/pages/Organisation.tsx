@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 
-export default function Home() {
+export default function Organisation() {
     const [auth, setAuth] = useState(false);
     const nav = useNavigate();
 
@@ -16,7 +16,7 @@ export default function Home() {
 
     return (
         <>
-            <h1>HomePage</h1>
+            <h1>Org HomePage</h1>
         </>
     );
 }
