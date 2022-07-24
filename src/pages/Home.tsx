@@ -1,3 +1,4 @@
+import UserNavBar from 'components/UserNavBar';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,7 +17,13 @@ export default function Home() {
 
     return (
         <>
-            <h1>HomePage</h1>
+            <div>
+                <UserNavBar />
+                <h1 >HomePage aaaaaaaaaaaaaaaaaaaaa</h1>
+            </div>a
+
+
+
         </>
     );
 }
