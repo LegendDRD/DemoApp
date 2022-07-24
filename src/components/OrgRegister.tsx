@@ -6,7 +6,7 @@ import { Navigate, useNavigate, NavLink } from 'react-router-dom';
 import { CenterDiv } from "../styledComponents/centerDiv";
 import { Input } from "../styledComponents/inputs";
 import { TenSpacer } from "../styledComponents/tenSpacer";
-import { FilledButton } from "../styledComponents/filledButton";
+import { FilledButton, GreyFilledButton } from "../styledComponents/filledButton";
 import { Link } from "../styledComponents/linkStyle";
 
 export default function OrgRegister() {
@@ -59,6 +59,11 @@ export default function OrgRegister() {
                     onChange={(e) => setPassword(e.target.value)} />
                 <TenSpacer />
                 <FilledButton onClick={() => { orgRegSubmit(); }} disabled={!validateForm()} >Submit</FilledButton>
+                {(validateForm()) ?
+                                        <FilledButton onClick={() => { orgRegSubmit(); }}  >Submit</FilledButton>
+                                        :
+                                        <GreyFilledButton >Submit</GreyFilledButton>
+                                    }
 
                 {(failedLogin) ? <p>Invalid details</p> : <></>}
 

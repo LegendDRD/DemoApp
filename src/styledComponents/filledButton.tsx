@@ -20,18 +20,12 @@ export const FilledButton = styled.button`
 export const GreyFilledButton = styled.button`
 
     width: 71.5%;
-    background-color: #966b68;
+    background-color: #0b2027;
     height:40px;
     color: white;
     border-radius: 5px;
-    transition: all .1s ease;
-    &:hover {
-        width: 71.5%;
-    background-color: #868686;
-    height:40px;
-    color: white;
-    border-radius: 5px;
-    }
+    opacity: 0.5;
+    cursor:not-allowed;
     
     `
     ;

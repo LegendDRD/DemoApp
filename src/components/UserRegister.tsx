@@ -6,7 +6,7 @@ import { Navigate, useNavigate, NavLink } from 'react-router-dom';
 import { CenterDiv, FlexDiv } from "../styledComponents/centerDiv";
 import { Input, ShortInput } from "../styledComponents/inputs";
 import { TenSpacer } from "../styledComponents/tenSpacer";
-import { FilledButton } from "../styledComponents/filledButton";
+import { FilledButton, GreyFilledButton } from "../styledComponents/filledButton";
 
 export default function UserRegister() {
     const nav = useNavigate();
@@ -86,8 +86,11 @@ export default function UserRegister() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)} />
 <TenSpacer />
-
-            <FilledButton onClick={() => { userRegSubmit(); }} disabled={!validateForm()} >Submit</FilledButton>
+{(validateForm()) ?
+                                        <FilledButton onClick={() => { userRegSubmit(); }}  >Submit</FilledButton>
+                                        :
+                                        <GreyFilledButton >Submit</GreyFilledButton>
+                                    }
             <TenSpacer />
             {(failedLogin) ? <span>Invalid details</span> : <></>}
 
