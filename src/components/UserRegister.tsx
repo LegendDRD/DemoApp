@@ -2,6 +2,15 @@ import axios from 'axios';
 import { useState } from 'react'
 import { Navigate, useNavigate, NavLink } from 'react-router-dom';
 
+// styled components
+import { CenterDiv } from "../styledComponents/centerDiv";
+import { Input } from "../styledComponents/inputs";
+import { TenSpacer } from "../styledComponents/tenSpacer";
+import { FilledButton } from "../styledComponents/filledButton";
+import { Link } from "../styledComponents/linkStyle";
+import { FlexDiv } from "../styledComponents/flexDiv";
+import { ShortInput } from "../styledComponents/shortInput";
+
 export default function UserRegister() {
     const nav = useNavigate();
 
@@ -38,47 +47,51 @@ export default function UserRegister() {
 
     return (
         <>
-            <div>User Register</div>
+            <span>User Register</span>
+            <TenSpacer />
+            <FlexDiv>
+                <ShortInput type="name"
+                    placeholder="First Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)} />
 
-            <span>name</span>
-            <input type="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)} />
+                <ShortInput type="surname"
+                    placeholder="Last Name"
+                    value={surname}
+                    onChange={(e) => setSurname(e.target.value)} />
+            </FlexDiv>
+            <TenSpacer />
+            <FlexDiv>
+                <ShortInput type="mobile_no"
+                    placeholder="Mobile Number"
+                    value={mobile_no}
+                    onChange={(e) => setMobile_no(e.target.value)} />
 
-            <span>surname</span>
-            <input type="surname"
-                value={surname}
-                onChange={(e) => setSurname(e.target.value)} />
-
-            <span>mobile_no</span>
-            <input type="mobile_no"
-                value={mobile_no}
-                onChange={(e) => setMobile_no(e.target.value)} />
-
-            <span>residence</span>
-            <input type="residence"
-                value={residence}
-                onChange={(e) => setResidence(e.target.value)} />
-
-            <span>country</span>
-            <input type="country"
+                <ShortInput type="residence"
+                    placeholder="Address"
+                    value={residence}
+                    onChange={(e) => setResidence(e.target.value)} />
+            </FlexDiv>
+            <TenSpacer />
+            <Input type="country"
+                placeholder="Country"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)} />
-
-            <span>email</span>
-            <input autoFocus
+<TenSpacer />
+            <Input autoFocus
+                placeholder="Email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)} />
-
-            <span>password</span>
-            <input type="password"
+                <TenSpacer />
+            <Input type="password"
+                placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)} />
+<TenSpacer />
 
-
-            <button onClick={() => { userRegSubmit(); }} disabled={!validateForm()} >Submit</button>
-
+            <FilledButton onClick={() => { userRegSubmit(); }} disabled={!validateForm()} >Submit</FilledButton>
+            <TenSpacer />
             {(failedLogin) ? <span>Invalid details</span> : <></>}
 
             {/* {(reg) ? <NavLink to='/orginisation'><span>Reg successful</span></NavLink> : <></>} */}

@@ -2,6 +2,13 @@ import axios from 'axios';
 import { useState } from 'react'
 import { Navigate, useNavigate, NavLink } from 'react-router-dom';
 
+// styled components
+import { CenterDiv } from "../styledComponents/centerDiv";
+import { Input } from "../styledComponents/inputs";
+import { TenSpacer } from "../styledComponents/tenSpacer";
+import { FilledButton } from "../styledComponents/filledButton";
+import { Link } from "../styledComponents/linkStyle";
+
 export default function OrgRegister() {
     const nav = useNavigate();
 
@@ -33,29 +40,30 @@ export default function OrgRegister() {
 
     return (
         <>
-            <div>Org Register</div>
+            <CenterDiv>
+                <p>Corporate Registration</p>
+                <Input type="name"
+                    placeholder="Organisation's Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)} />
+                <TenSpacer />
+                <Input autoFocus
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} />
+                <TenSpacer />
+                <Input type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)} />
+                <TenSpacer />
+                <FilledButton onClick={() => { orgRegSubmit(); }} disabled={!validateForm()} >Submit</FilledButton>
 
-            <span>email</span>
-            <input autoFocus
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)} />
+                {(failedLogin) ? <p>Invalid details</p> : <></>}
 
-            <span>password</span>
-            <input type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)} />
-
-            <span>orgname</span>
-            <input type="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)} />
-
-            <button onClick={() => { orgRegSubmit(); }} disabled={!validateForm()} >Submit</button>
-
-            {(failedLogin) ? <span>Invalid details</span> : <></>}
-
-            {/* {(reg) ? <NavLink to='/orginisation'><span>Reg successful</span></NavLink> : <></>} */}
+                {/* {(reg) ? <NavLink to='/orginisation'><span>Reg successful</span></NavLink> : <></>} */}
+            </CenterDiv>
         </>
     )
 }
