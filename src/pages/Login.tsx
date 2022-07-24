@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-
+import UserRegister from "components/UserRegister";
+import OrgRegister from "components/OrgRegister";
 export default function Login() {
     const nav = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [failedLogin, setFailedLogin] = useState(false);
     const [orgLogin, setOrgLogin] = useState(false);
-
+    const [register, setRegister] = useState(false);
 
 
     function validateForm() {
@@ -43,51 +44,74 @@ export default function Login() {
             });
     }
 
+
+
     return (
         <>
+            {(register) ?
+                <> {(orgLogin) ?
+                    <> {/*ORG Register */}
+                        <OrgRegister />
 
-            {(orgLogin) ?
-                <> {/*ORG login */}
+                        <a onClick={() => { setOrgLogin(false) }}>Switch to User </a>
+                    </>
+                    :
+                    <>
+                        {/*User Register */}
+                        <UserRegister />
 
-                    <h1>Org login</h1>
-                    <span>email</span>
-                    <input autoFocus
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)} />
 
-                    <span>password</span>
-                    <input type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)} />
-
-                    <button onClick={() => { orgloginSubmit(); }} disabled={!validateForm()} >Submit</button>
-
-                    {(failedLogin) ? <span>Invalid login</span> : <></>}
-                    <a onClick={() => { setOrgLogin(false) }}>Switch to User </a>
+                        <a onClick={() => { setOrgLogin(true) }}>Switch to Org </a>
+                    </>
+                }
+                    <a onClick={() => { setRegister(false) }}>Login</a>
                 </>
                 :
-                <>
-                    {/*User login */}
-                    <h1>User login</h1>
-                    <span>email</span>
-                    <input autoFocus
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)} />
+                <> {(orgLogin) ?
+                    <> {/*ORG login */}
 
-                    <span>password</span>
-                    <input type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)} />
+                        <h1>Org login</h1>
+                        <span>email</span>
+                        <input autoFocus
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)} />
 
-                    <button onClick={() => { userloginSubmit(); }} disabled={!validateForm()} >Submit</button>
+                        <span>password</span>
+                        <input type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)} />
 
-                    {(failedLogin) ? <span>Invalid login</span> : <></>}
+                        <button onClick={() => { orgloginSubmit(); }} disabled={!validateForm()} >Submit</button>
 
-                    <a onClick={() => { setOrgLogin(true) }}>Switch to Org </a>
-                </>
+                        {(failedLogin) ? <span>Invalid login</span> : <></>}
+                        <a onClick={() => { setOrgLogin(false) }}>Switch to User </a>
+                    </>
+                    :
+                    <>
+                        {/*User login */}
+                        <h1>User login</h1>
+                        <span>email</span>
+                        <input autoFocus
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)} />
+
+                        <span>password</span>
+                        <input type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)} />
+
+                        <button onClick={() => { userloginSubmit(); }} disabled={!validateForm()} >Submit</button>
+
+                        {(failedLogin) ? <span>Invalid login</span> : <></>}
+
+                        <a onClick={() => { setOrgLogin(true) }}>Switch to Org </a>
+                    </>
+                }
+                    <a onClick={() => { setRegister(true) }}>Register</a></>
             }
+
 
 
         </>
