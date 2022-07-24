@@ -11,7 +11,7 @@ import { Modal } from "../styledComponents/modal";
 import { CenterDiv } from "../styledComponents/centerDiv";
 import { Input } from "../styledComponents/inputs";
 import { TenSpacer } from "../styledComponents/tenSpacer";
-import { FilledButton } from "../styledComponents/filledButton";
+import { FilledButton, GreyFilledButton } from "../styledComponents/filledButton";
 import { Link } from "../styledComponents/linkStyle";
 import { Error } from "../styledComponents/errorMessages";
 
@@ -125,7 +125,12 @@ export default function Login() {
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)} />
                                     <TenSpacer />
-                                    <FilledButton onClick={() => { orgloginSubmit(); }} disabled={!validateForm()} >Submit</FilledButton>
+                                    {(validateForm()) ?
+                                        <FilledButton onClick={() => { orgloginSubmit(); }}  >Submit</FilledButton>
+                                        :
+                                        <GreyFilledButton >Submit</GreyFilledButton>
+                                    }
+
                                     <TenSpacer />
                                     <Link onClick={() => { setOrgLogin(false) }}>Switch to User </Link>
                                 </CenterDiv>
@@ -151,7 +156,11 @@ export default function Login() {
                                         onChange={(e) => setPassword(e.target.value)} />
                                     <TenSpacer />
 
-                                    <FilledButton onClick={() => { userloginSubmit(); }} disabled={!validateForm()} >Submit</FilledButton>
+                                    {(validateForm()) ?
+                                        <FilledButton onClick={() => { userloginSubmit(); }}  >Submit</FilledButton>
+                                        :
+                                        <GreyFilledButton >Submit</GreyFilledButton>
+                                    }
 
                                     <TenSpacer />
                                     <TenSpacer />
