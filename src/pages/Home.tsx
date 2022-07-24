@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
     const [auth, setAuth] = useState(false);
@@ -12,7 +12,7 @@ export default function Home() {
         } else {
             nav('/login')
         }
-    }, []);
+    }, [nav]);
 
     return (
         <>

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from 'axios'
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import UserRegister from "components/UserRegister";
 import OrgRegister from "components/OrgRegister";
 export default function Login() {
