@@ -13,6 +13,7 @@ import { Input } from "../styledComponents/inputs";
 import { TenSpacer } from "../styledComponents/tenSpacer";
 import { FilledButton } from "../styledComponents/filledButton";
 import { Link } from "../styledComponents/linkStyle";
+import { Error } from "../styledComponents/errorMessages";
 
 // SVG's
 import { ReactComponent as ReactLogo } from '../static/images/demo-logo.svg';
@@ -99,6 +100,8 @@ export default function Login() {
                                 <CenterDiv>
                                     <TenSpacer />
                                     <p>Corporate login</p>
+                                    {(failedLogin) ? <Error>The credentials you entered are invalid! Please try again.</Error> : <></>}
+                                    <TenSpacer />
                                     <Input autoFocus
                                         placeholder="Email"
                                         type="email"
@@ -112,7 +115,6 @@ export default function Login() {
                                     <TenSpacer />
                                     <FilledButton onClick={() => { orgloginSubmit(); }} disabled={!validateForm()} >Submit</FilledButton>
                                     <TenSpacer />
-                                    {(failedLogin) ? <span>Invalid login</span> : <></>}
                                     <Link onClick={() => { setOrgLogin(false) }}>Switch to User </Link>
                                 </CenterDiv>
                             </>
@@ -122,6 +124,8 @@ export default function Login() {
                                 <CenterDiv>
                                     <TenSpacer />
                                     <p>User login</p>
+                                    {(failedLogin) ? <Error>The credentials you entered are invalid! Please try again.</Error> : <></>}
+                                    <TenSpacer />
                                     <Input autoFocus
                                         type="email"
                                         placeholder="Email"
@@ -137,7 +141,6 @@ export default function Login() {
 
                                     <FilledButton onClick={() => { userloginSubmit(); }} disabled={!validateForm()} >Submit</FilledButton>
 
-                                    {(failedLogin) ? <span>Invalid login</span> : <></>}
                                     <TenSpacer />
                                     <TenSpacer />
                                     <Link onClick={() => { setOrgLogin(true) }}>Corporate Portal</Link>

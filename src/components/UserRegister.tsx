@@ -3,13 +3,10 @@ import { useState } from 'react'
 import { Navigate, useNavigate, NavLink } from 'react-router-dom';
 
 // styled components
-import { CenterDiv } from "../styledComponents/centerDiv";
-import { Input } from "../styledComponents/inputs";
+import { CenterDiv, FlexDiv } from "../styledComponents/centerDiv";
+import { Input, ShortInput } from "../styledComponents/inputs";
 import { TenSpacer } from "../styledComponents/tenSpacer";
 import { FilledButton } from "../styledComponents/filledButton";
-import { Link } from "../styledComponents/linkStyle";
-import { FlexDiv } from "../styledComponents/flexDiv";
-import { ShortInput } from "../styledComponents/shortInput";
 
 export default function UserRegister() {
     const nav = useNavigate();
