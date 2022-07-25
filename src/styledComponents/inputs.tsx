@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FaHome, FaTaxi } from 'react-icons/fa'
 export const Input = styled.input`
 
     width:70%;
@@ -27,4 +28,10 @@ export const ShortInput = styled.input`
     :focus::placeholder {
     color: transparent;
     }
+`;
+export const HomeStyle = styled(FaHome)`
+
+cursor: "pointer";
+color: "white";
+font-size: '23rem' 
 `;
