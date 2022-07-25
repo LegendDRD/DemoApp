@@ -21,11 +21,15 @@ import { HalfFilledButton, GreyFilledButton, HalfFilledButtonRed } from "../styl
 import { ReactComponent as IncLogo } from '../static/images/inc-logo-beta.svg';
 
 import { Sidebar, Sidebar2 } from '../styledComponents/sideNavbar';
+import EditingModal from 'components/EditingModal';
+import AddUserModal from 'components/AddUserModal';
 export default function Organisation() {
     const [auth, setAuth] = useState('');
     const nav = useNavigate();
     const [listUser, setListUser] = useState([])
     const [mainWidth, setMainWidth] = useState("300px");
+    const [show, setShow] = useState(false);
+    const [showAdd, setShowAdd] = useState(false);
 
     useEffect(() => {
 
@@ -46,7 +50,7 @@ export default function Organisation() {
         } else {
             nav('/login')
         }
-    }, [nav]);
+    }, [nav, show]);
 
     function userDelete(itemInfo: any) {
         axios.delete(`${process.env.REACT_APP_API_URL}org/${itemInfo.id}`, { headers: { Authorization: `Bearer ${auth}` } })
@@ -61,6 +65,7 @@ export default function Organisation() {
                 console.log(error);
             });
     }
+
     const Content = styled.div`
     transition: all .1s ease;
 
@@ -75,16 +80,21 @@ export default function Organisation() {
         nav('/login')
     }
     const [contentList, setContentList] = useState(0);
+    const [selectedUser, setSelectedUser] = useState({ name: "aa" });
 
     return (
         <>
-
+            <EditingModal show={show} info={selectedUser} onClose={() => { setShow(false) }} />
+            <AddUserModal show={showAdd} onClose={() => { setShowAdd(false) }} />
             <Sidebar >
 
                 <div onClick={() => { setContentList(0); setMainWidth("300px") }}><FaHome style={{ color: "white", fontSize: '2rem' }} /></div>
                 <div onClick={() => { setContentList(1); setMainWidth("100px") }}><IoMdAirplane style={{ color: "white", fontSize: '2rem' }} /></div>
                 <div onClick={() => { setContentList(2); setMainWidth("100px") }}><BiTrain style={{ color: "white", fontSize: '2rem' }} /></div>
                 <div onClick={() => { setContentList(3); setMainWidth("100px") }}><FaTaxi style={{ color: "white", fontSize: '2rem' }} /></div>
+
+                <div onClick={() => { setShowAdd(true); }}><FaTaxi style={{ color: "white", fontSize: '2rem' }} /></div>
+
                 <div style={{ position: "absolute", bottom: "0" }} ><AiOutlineLogout onClick={() => { logOut() }} style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
 
             </Sidebar>
@@ -103,12 +113,12 @@ export default function Organisation() {
                         </Sidebar2>
 
                         <Content >
-                        <CenterDiv>
-                        <TenSpacer/>
-                            <H1>Organisation Admin Page</H1>
-                            <p>Welcome to your Organisation Admin Page!<br/>Here you can create and edit users within your organisation</p>
-                            <TenSpacer/>
-                            <TenSpacer/>
+                            <CenterDiv>
+                                <TenSpacer />
+                                <H1>Organisation Admin Page</H1>
+                                <p>Welcome to your Organisation Admin Page!<br />Here you can create and edit users within your organisation</p>
+                                <TenSpacer />
+                                <TenSpacer />
                             </CenterDiv>
                             <Table>
                                 <LeftTableRow>
@@ -133,7 +143,7 @@ export default function Organisation() {
                                                 <TableData>{item.limit}  </TableData>
                                                 <TableData> {item.created_at}   </TableData>
                                                 {/* <div key={index} > </div> */}
-                                                <TableDataButtons><HalfFilledButton onClick={() => { }}>Edit</HalfFilledButton></TableDataButtons>
+                                                <TableDataButtons><HalfFilledButton onClick={() => { setShow(true); setSelectedUser(item) }}>Edit</HalfFilledButton></TableDataButtons>
                                                 <TableDataButtons><HalfFilledButtonRed onClick={() => { userDelete(item) }}>Delete</HalfFilledButtonRed></TableDataButtons>
                                             </tr>
                                         </>
@@ -149,7 +159,7 @@ export default function Organisation() {
             {
                 (contentList === 1) ?
                     <Content >
-                        <TenSpacer/>
+                        <TenSpacer />
                         <H1>Org user page</H1>
                         <Table>
                             <tr> <th>Name</th> <th>surname</th>  <th>email</th> <th>residence</th> <th>country</th> <th>limit</th> <th>created_at</th></tr>
@@ -163,10 +173,10 @@ export default function Organisation() {
                                             <td>{item.email} </td>
                                             <td>{item.residence}  </td>
                                             <td>{item.country} </td>
-                                            <td>{item.limit}  </td>
+                                            <td>{item.cash_limit}  </td>
                                             <td> {item.created_at}   </td>
                                             {/* <div key={index} > </div> */}
-                                            <button onClick={() => { }}>Edit</button>
+                                            <button onClick={() => { setShow(true); setSelectedUser(item) }}>Edit</button>
                                             <button onClick={() => { userDelete(item) }}>Delete</button>
                                         </tr>
                                     </>
