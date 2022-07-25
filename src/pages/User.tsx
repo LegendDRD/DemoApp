@@ -8,7 +8,7 @@ import { BiLogOutCircle, BiTrain } from 'react-icons/bi'
 import { Sidebar, Sidebar2 } from '../styledComponents/sideNavbar';
 import { AiOutlineLogout } from 'react-icons/ai';
 
-export default function Home() {
+export default function User() {
 
     const [auth, setAuth] = useState(false);
     const nav = useNavigate();
