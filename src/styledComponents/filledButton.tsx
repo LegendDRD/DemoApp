@@ -7,6 +7,7 @@ export const FilledButton = styled.button`
     color: white;
     border-radius: 5px;
     transition: all .1s ease;
+    cursor: pointer;
     &:hover {
         width: 71.5%;
     background-color: #40798c;

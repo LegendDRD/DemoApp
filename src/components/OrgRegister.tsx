@@ -9,6 +9,8 @@ import { TenSpacer } from "../styledComponents/tenSpacer";
 import { FilledButton, GreyFilledButton } from "../styledComponents/filledButton";
 import { Link } from "../styledComponents/linkStyle";
 
+// SVG's
+
 export default function OrgRegister() {
     const nav = useNavigate();
 
@@ -58,7 +60,6 @@ export default function OrgRegister() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)} />
                 <TenSpacer />
-                <FilledButton onClick={() => { orgRegSubmit(); }} disabled={!validateForm()} >Submit</FilledButton>
                 {(validateForm()) ?
                                         <FilledButton onClick={() => { orgRegSubmit(); }}  >Submit</FilledButton>
                                         :

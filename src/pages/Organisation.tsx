@@ -2,10 +2,22 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+
+// Icons
 import { FaHome, FaTaxi } from 'react-icons/fa'
 import { IoMdAirplane } from 'react-icons/io'
 import { BiTrain } from 'react-icons/bi'
 import { AiOutlineLogout } from 'react-icons/ai'
+
+// styled components
+import { CenterDiv,PaddingLeftDiv } from "../styledComponents/centerDiv";
+import { Input } from "../styledComponents/inputs";
+import { TenSpacer, FortySpacer } from "../styledComponents/tenSpacer";
+
+
+// Svg's
+import { ReactComponent as IncLogo } from '../static/images/inc-logo-beta.svg';
+
 import { Sidebar, Sidebar2 } from '../styledComponents/sideNavbar';
 export default function Organisation() {
     const [auth, setAuth] = useState('');
@@ -78,6 +90,10 @@ export default function Organisation() {
                 (contentList === 0) ?
                     <>
                         <Sidebar2 >
+                                <FortySpacer/>
+                            <PaddingLeftDiv>
+                            <IncLogo width="70%" />
+                            </PaddingLeftDiv>
                             <a href="#" onClick={() => setContentList(0)}><FaHome style={{ color: "white", fontSize: '1rem' }} />aaaaa</a>
                             <a href="#" onClick={() => setContentList(1)}><IoMdAirplane style={{ color: "white", fontSize: '1rem' }} />dddw</a>
                             <a href="#" onClick={() => setContentList(1)}><BiTrain style={{ color: "white", fontSize: '1rem' }} />dwdwd</a>
