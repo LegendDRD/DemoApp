@@ -11,11 +11,18 @@ export const Sidebar = styled.div`
   height: 100%;
   /* overflow: auto; */
   
-  a {
+  div {
     display: block;
   color: black;
   padding: 20px;
   /* text-decoration: none; */
+  &:hover{
+    background-color:red;
+  }
+  
+  &.active{
+    background-color:red;
+  }
 }
 @media screen and (max-width: 700px) {
  

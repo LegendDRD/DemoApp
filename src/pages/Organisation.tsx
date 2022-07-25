@@ -10,7 +10,7 @@ import { BiTrain } from 'react-icons/bi'
 import { AiOutlineLogout } from 'react-icons/ai'
 
 // styled components
-import { CenterDiv,PaddingLeftDiv } from "../styledComponents/centerDiv";
+import { CenterDiv, PaddingLeftDiv } from "../styledComponents/centerDiv";
 import { Input } from "../styledComponents/inputs";
 import { TenSpacer, FortySpacer } from "../styledComponents/tenSpacer";
 
@@ -79,20 +79,20 @@ export default function Organisation() {
 
             <Sidebar >
 
-                <a href="#" onClick={() => { setContentList(0); setMainWidth("300px") }}><FaHome style={{ color: "white", fontSize: '2rem' }} /></a>
-                <a href="#" onClick={() => { setContentList(1); setMainWidth("100px") }}><IoMdAirplane style={{ color: "white", fontSize: '2rem' }} /></a>
-                <a href="#" onClick={() => { setContentList(2); setMainWidth("100px") }}><BiTrain style={{ color: "white", fontSize: '2rem' }} /></a>
-                <a href="#" onClick={() => { setContentList(3); setMainWidth("100px") }}><FaTaxi style={{ color: "white", fontSize: '2rem' }} /></a>
-                <a style={{ position: "absolute", bottom: "0" }} ><AiOutlineLogout onClick={() => { logOut() }} style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></a>
+                <div onClick={() => { setContentList(0); setMainWidth("300px") }}><FaHome style={{ color: "white", fontSize: '2rem' }} /></div>
+                <div onClick={() => { setContentList(1); setMainWidth("100px") }}><IoMdAirplane style={{ color: "white", fontSize: '2rem' }} /></div>
+                <div onClick={() => { setContentList(2); setMainWidth("100px") }}><BiTrain style={{ color: "white", fontSize: '2rem' }} /></div>
+                <div onClick={() => { setContentList(3); setMainWidth("100px") }}><FaTaxi style={{ color: "white", fontSize: '2rem' }} /></div>
+                <div style={{ position: "absolute", bottom: "0" }} ><AiOutlineLogout onClick={() => { logOut() }} style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
 
             </Sidebar>
             {
                 (contentList === 0) ?
                     <>
                         <Sidebar2 >
-                                <FortySpacer/>
+                            <FortySpacer />
                             <PaddingLeftDiv>
-                            <IncLogo width="70%" />
+                                <IncLogo width="70%" />
                             </PaddingLeftDiv>
                             <a href="#" onClick={() => setContentList(0)}><FaHome style={{ color: "white", fontSize: '1rem' }} />aaaaa</a>
                             <a href="#" onClick={() => setContentList(1)}><IoMdAirplane style={{ color: "white", fontSize: '1rem' }} />dddw</a>

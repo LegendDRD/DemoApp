@@ -7,7 +7,6 @@ import { IoMdAirplane } from 'react-icons/io'
 import { BiTrain } from 'react-icons/bi'
 import { Sidebar, Sidebar2 } from '../styledComponents/sideNavbar';
 import { AiOutlineLogout } from 'react-icons/ai';
-import { HomeStyle } from 'styledComponents/inputs';
 
 export default function User() {
 
@@ -41,13 +40,12 @@ export default function User() {
 
     return (
         <>
-            <Sidebar >
-                <a onClick={() => { setContentList(0); setMainWidth("300px") }}><HomeStyle style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></a>
-                <a onClick={() => { setContentList(1); setMainWidth("100px") }}><IoMdAirplane style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></a>
-                <a onClick={() => { setContentList(2); setMainWidth("100px") }}><BiTrain style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></a>
-                <a onClick={() => { setContentList(3); setMainWidth("100px") }}><FaTaxi style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></a>
-                <a style={{ position: "absolute", bottom: "0" }} ><AiOutlineLogout onClick={() => { logOut() }} style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></a>
-
+            <Sidebar  >
+                <div onClick={() => { setContentList(0); setMainWidth("300px") }}><FaHome style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
+                <div onClick={() => { setContentList(1); setMainWidth("100px") }}><IoMdAirplane style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
+                <div onClick={() => { setContentList(2); setMainWidth("100px") }}><BiTrain style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
+                <div onClick={() => { setContentList(3); setMainWidth("100px") }}><FaTaxi style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
+                <div style={{ position: "absolute", bottom: "0" }} ><AiOutlineLogout onClick={() => { logOut() }} style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
             </Sidebar>
             {
                 (contentList === 0) ?
