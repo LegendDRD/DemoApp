@@ -10,9 +10,11 @@ import { BiTrain } from 'react-icons/bi'
 import { AiOutlineLogout } from 'react-icons/ai'
 
 // styled components
-import { CenterDiv, PaddingLeftDiv } from "../styledComponents/centerDiv";
+import { CenterDiv, PaddingLeftDiv, LeftTableRow, Table, TableHeader, TableData, TableDataButtons } from "../styledComponents/centerDiv";
 import { Input } from "../styledComponents/inputs";
 import { TenSpacer, FortySpacer } from "../styledComponents/tenSpacer";
+import { NavP, H1 } from "../styledComponents/StyledText";
+import { HalfFilledButton, GreyFilledButton, HalfFilledButtonRed } from "../styledComponents/filledButton";
 
 
 // Svg's
@@ -94,17 +96,51 @@ export default function Organisation() {
                             <PaddingLeftDiv>
                                 <IncLogo width="70%" />
                             </PaddingLeftDiv>
-                            <a href="#" onClick={() => setContentList(0)}><FaHome style={{ color: "white", fontSize: '1rem' }} />aaaaa</a>
-                            <a href="#" onClick={() => setContentList(1)}><IoMdAirplane style={{ color: "white", fontSize: '1rem' }} />dddw</a>
-                            <a href="#" onClick={() => setContentList(1)}><BiTrain style={{ color: "white", fontSize: '1rem' }} />dwdwd</a>
-                            <a href="#" onClick={() => setContentList(3)}><FaTaxi style={{ color: "white", fontSize: '1rem' }} />adwadawd</a>
+                            <a href="#" onClick={() => setContentList(0)}><FaHome style={{ color: "white", fontSize: '1rem' }} /><NavP>Users</NavP></a>
+                            {/* <a href="#" onClick={() => setContentList(1)}><IoMdAirplane style={{ color: "white", fontSize: '1rem' }} /><NavP>aaaaa</NavP></a>
+                            <a href="#" onClick={() => setContentList(1)}><BiTrain style={{ color: "white", fontSize: '1rem' }} /><NavP>aaaaa</NavP></a>
+                            <a href="#" onClick={() => setContentList(3)}><FaTaxi style={{ color: "white", fontSize: '1rem' }} /><NavP>aaaaa</NavP></a> */}
                         </Sidebar2>
 
                         <Content >
-                            <h2>Page1</h2> {/*Add in as a component*/}
-                            <p>This example use media queries to transform the sidebar to a top navigation bar when the screen size is 700px or less.</p>
-                            <p>We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
-                            <h3>Resize the browser window to see the effect.</h3>
+                        <CenterDiv>
+                        <TenSpacer/>
+                            <H1>Organisation Admin Page</H1>
+                            <p>Welcome to your Organisation Admin Page!<br/>Here you can create and edit users within your organisation</p>
+                            <TenSpacer/>
+                            <TenSpacer/>
+                            </CenterDiv>
+                            <Table>
+                                <LeftTableRow>
+                                    <TableHeader>Name</TableHeader>
+                                    <TableHeader>Surname</TableHeader>
+                                    <TableHeader>Email</TableHeader>
+                                    <TableHeader>Residence</TableHeader>
+                                    <TableHeader>Country</TableHeader>
+                                    <TableHeader>Limit</TableHeader>
+                                    <TableHeader>Created on</TableHeader>
+                                </LeftTableRow>
+
+                                {listUser.map((item: any, index) => {
+                                    return (
+                                        <>
+                                            <tr>
+                                                <TableData>{item.name} </TableData>
+                                                <TableData>{item.surname}  </TableData>
+                                                <TableData>{item.email} </TableData>
+                                                <TableData>{item.residence}  </TableData>
+                                                <TableData>{item.country} </TableData>
+                                                <TableData>{item.limit}  </TableData>
+                                                <TableData> {item.created_at}   </TableData>
+                                                {/* <div key={index} > </div> */}
+                                                <TableDataButtons><HalfFilledButton onClick={() => { }}>Edit</HalfFilledButton></TableDataButtons>
+                                                <TableDataButtons><HalfFilledButtonRed onClick={() => { userDelete(item) }}>Delete</HalfFilledButtonRed></TableDataButtons>
+                                            </tr>
+                                        </>
+                                    )
+                                })}
+                            </Table>
+
                         </Content>
 
                     </>
@@ -113,8 +149,9 @@ export default function Organisation() {
             {
                 (contentList === 1) ?
                     <Content >
-                        <h1>Org user page</h1>
-                        <table>
+                        <TenSpacer/>
+                        <H1>Org user page</H1>
+                        <Table>
                             <tr> <th>Name</th> <th>surname</th>  <th>email</th> <th>residence</th> <th>country</th> <th>limit</th> <th>created_at</th></tr>
 
                             {listUser.map((item: any, index) => {
@@ -135,7 +172,7 @@ export default function Organisation() {
                                     </>
                                 )
                             })}
-                        </table>
+                        </Table>
 
                     </Content> : <></>
             }
