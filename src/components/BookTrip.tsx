@@ -12,7 +12,7 @@ export default function BookTrip() {
     // const [startDate, setStartDate] = useState(new Date());
     const [selectDate, setSelectDate] = useState(new Date().toDateString());
     let demoData = [{
-        airlineName: "Emerenita",
+        airlineName: "Asiana Airlines",
         gateNumber: "01",
         arrival: "13:30",
         departure: "15:30",
@@ -25,8 +25,8 @@ export default function BookTrip() {
 
     },
     {
-        airlineName: "Britsh Airlines",
-        gateNumber: "01",
+        airlineName: "easyJet",
+        gateNumber: "15",
         arrival: "13:30",
         departure: "15:30",
         ecoPrice: 10000,
@@ -38,8 +38,8 @@ export default function BookTrip() {
 
     },
     {
-        airlineName: "Britsh Airlines",
-        gateNumber: "01",
+        airlineName: "Cebu Pacific Air",
+        gateNumber: "03",
         arrival: "12:30",
         departure: "15:30",
         ecoPrice: 10000,
@@ -51,8 +51,8 @@ export default function BookTrip() {
 
     },
     {
-        airlineName: "Britsh Airlines",
-        gateNumber: "01",
+        airlineName: "Virgin Blue Airlines",
+        gateNumber: "10",
         arrival: "12:30",
         departure: "15:30",
         ecoPrice: 10000,
@@ -155,9 +155,8 @@ export default function BookTrip() {
                                         <span>{item.airlineName}</span>
 
                                         <div style={{ display: "grid", backgroundColor: "lightgrey" }}>
-                                            <span style={{ textAlign: "center" }}>Arrival TIme {item.arrival}</span>
+                                            <span style={{ textAlign: "center", paddingTop: "15px" }}>Arrival TIme {item.arrival}</span>
                                             <span style={{ textAlign: "center" }}>Departure Time {item.departure}</span>
-
                                         </div>
                                     </div>
 
