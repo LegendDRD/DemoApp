@@ -2,12 +2,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaHome, FaTaxi } from 'react-icons/fa'
+import { FaHome, FaTaxi, FaPlaneDeparture } from 'react-icons/fa'
 import { IoMdAirplane } from 'react-icons/io'
 import { BiTrain } from 'react-icons/bi'
 import { Sidebar, Sidebar2 } from '../styledComponents/sideNavbar';
 import { AiOutlineLogout } from 'react-icons/ai';
 import BookTrip from 'components/BookTrip';
+import { NavP, H1 } from "../styledComponents/StyledText";
 
 export default function User() {
 
@@ -43,19 +44,16 @@ export default function User() {
         <>
             <Sidebar  >
                 <div onClick={() => { setContentList(0); setMainWidth("300px") }}><FaHome style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
-                <div onClick={() => { setContentList(1); setMainWidth("100px") }}><IoMdAirplane style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
+                {/* <div onClick={() => { setContentList(1); setMainWidth("100px") }}><IoMdAirplane style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
                 <div onClick={() => { setContentList(2); setMainWidth("100px") }}><BiTrain style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
-                <div onClick={() => { setContentList(3); setMainWidth("100px") }}><FaTaxi style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
+                <div onClick={() => { setContentList(3); setMainWidth("100px") }}><FaTaxi style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div> */}
                 <div style={{ position: "absolute", bottom: "0" }} ><AiOutlineLogout onClick={() => { logOut() }} style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
             </Sidebar>
             {
                 (contentList === 0) ?
                     <>
                         <Sidebar2 >
-                            <a onClick={() => setContentList(0)}><FaHome style={{ color: "white", fontSize: '1rem' }} />aaaaa</a>
-                            <a onClick={() => setContentList(1)}><IoMdAirplane style={{ color: "white", fontSize: '1rem' }} />dddw</a>
-                            <a onClick={() => setContentList(1)}><BiTrain style={{ color: "white", fontSize: '1rem' }} />dwdwd</a>
-                            <a onClick={() => setContentList(3)}><FaTaxi style={{ color: "white", fontSize: '1rem' }} />adwadawd</a>
+                        <a href="#" onClick={() => setContentList(0)}><FaPlaneDeparture style={{ color: "white", fontSize: '1rem' }} /><NavP>Users</NavP></a>
                         </Sidebar2>
 
                         <Content >

@@ -46,3 +46,11 @@ export const CardFooterBad = styled.span`
     color: red;
 
 `;
+
+export const Header = styled.span`
+
+    font-size: 22px;
+    margin: 0px;
+    color: white;
+
+`;

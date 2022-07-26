@@ -12,24 +12,20 @@ export default function CurrentCityDropDown() {
         console.log(selectedOption);
     };
 
-    let Cities = ["Johannesburg", "Cape Town"]
+    let Cities = ["Johannesburg (JNB)", "Cape Town (CPT)", "Bloemfontein (BFN)", "Durban (DUR)", "Skukuza (SZK)" ]
 
     const DropDownContainer = styled("div")`
 
     `;
 
     const DropDownHeader = styled("div")`
-      margin-bottom: 0.8em;
-      padding: 0.4em 20vw 0.4em 1em;
       box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
       font-weight: 500;
-      font-size: 1.3rem;
+      font-size: 18px;
       color: #0c4e38;
-      background: #ffffff;
-      border: 2px solid #0c4e38;
-      border-radius: 5px;
-      justify-content:center;
+      border: 1px solid #0c4e38;
       box-shadow: 0 0.1rem 1rem rgba(10, 10, 10, 0.2);
+      padding: 5px;
     `;
 
     const DropDownListContainer = styled("div")`

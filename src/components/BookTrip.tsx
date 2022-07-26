@@ -8,6 +8,12 @@ import InfantsDropDown from './InfantsDropDown';
 import PlanClassDropDown from './PlanClassDropDown';
 import { GiAirplaneDeparture } from 'react-icons/gi';
 
+import { TenSpacer, FortySpacer } from "../styledComponents/tenSpacer";
+import { Link, Link2Green, Link2Red } from "../styledComponents/linkStyle";
+
+import { NavP, H1,Header } from "../styledComponents/StyledText";
+import { Input, FullWidthInput } from "../styledComponents/inputs";
+
 export default function BookTrip() {
     // const [startDate, setStartDate] = useState(new Date());
     const [selectDate, setSelectDate] = useState(new Date().toDateString());
@@ -70,9 +76,8 @@ export default function BookTrip() {
 
         <>
 
-            <div style={{ display: "flex" }}>
-
-                <div style={{ display: "grid" }}>
+            <div>
+                {/* <div style={{ display: "grid" }}>
                     <div style={{ paddingRight: "30px" }}>
                         <div style={{ backgroundColor: "#0c3628", width: "50px", height: "50px", borderRadius: "100%" }}>
                             <h1 style={{ textAlign: "center", color: "white" }}>1</h1>
@@ -91,64 +96,79 @@ export default function BookTrip() {
                             <h1 style={{ textAlign: "center", color: "white" }}>3</h1>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div style={{ width: "100%" }}>
-                    <h1 style={{ width: "100%" }}>Book Trip</h1>
-                    <div style={{ display: "flex", width: "100%", justifyContent: "space-evenly" }}>
-                        <CurrentCityDropDown />
-                        <DestinationCityDropDown />
+                    <h1 style={{ width: "100%" }}>1. Book Your Trip</h1>
+                    <div style={{ display: "flex", gap: `20px` }}>
+                        <div style={{ width: "100%" }}>
+                            <CurrentCityDropDown />
+                        </div>
+                        <div style={{ width: "100%" }}>
+                            <DestinationCityDropDown />
+                        </div>
                     </div>
-                    <div style={{ display: "flex", width: "100%", justifyContent: "space-evenly" }}>
+                    <TenSpacer />
+                    <div style={{ display: "flex", width: "100%", gap: "10px" }}>
                         <AdultDropDown />
                         <ChildrenDropDown />
                         <InfantsDropDown />
                         <PlanClassDropDown />
 
                     </div>
-                    <div style={{ display: "flex", width: "100%", justifyContent: "space-between", backgroundColor: "#0c3628", boxShadow: " 0 2px 3px rgba(0, 0, 0, 0.15)", border: '2px solid #0c4e38' }}>
+                    <TenSpacer />
+                    <div style={{ display: "flex", width: "100%", justifyContent: "space-between", height: `15 0px`, backgroundColor: "#0c3628", boxShadow: " 0 2px 3px rgba(0, 0, 0, 0.15)", border: '2px solid #0c4e38' }}>
 
-                        <div style={{ display: "grid", padding: '20px' }}>
+                        <div style={{ padding: '20px' }}>
 
-                            <div style={{ color: 'white', textAlign: "center" }} ><GiAirplaneDeparture style={{ fontSize: "2rem", paddingRight: "10px" }} />Departure Date</div><input onChange={(e: any) => setSelectDate(e.target.value)} type={"date"} />
+                       <Header style={{ color: 'white', textAlign: "center" }} > <GiAirplaneDeparture style={{ fontSize: "2rem", paddingRight: "10px" }} />Departure Date</Header>
+                       <TenSpacer />
+                       <FullWidthInput onChange={(e: any) => setSelectDate(e.target.value)} type={"date"} />
 
                         </div>
                         <div style={{ padding: '20px' }}>
-                            <input type={"radio"} />
+                            <input type={"checkbox"} />
                             <span style={{ color: 'white' }}>One way </span>
                         </div>
 
                     </div>
-                    <h2 style={{ width: "100%", textAlign: "center", display: "flex" }}><div style={{ width: "30Vw", height: "2px", background: "black", top: "23px" }} />OutBound to<div style={{ width: "30vw", height: "2px", background: "black" }} /></h2>
-                    <div style={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
-                        <div style={{ display: "flex", width: "60%", justifyContent: "space-between" }}>
-
-                            <div >Date: {selectDate}</div>
-
-                            <div >all times displayed are local for each city</div>
-                        </div>
-                        <div style={{ display: "flex", width: "25%", justifyContent: "space-between" }}>
-                            <button>Previous</button>
-                            <span>page number 1</span>
-                            <button>Next</button>
+                    <FortySpacer />
+                    <div style={{ width: "100%", textAlign: "center", display: "flex", gap: `5px` }}>
+                        <div style={{ width: "100%", height: "2px", background: "black", top: "23px" }} /><h2 style={{ width: "30%", textAlign: "center", fontSize: "30px", marginTop:`-18px` }}>OutBound</h2><div style={{ width: "100%", height: "2px", background: "black" }} />
+                        <div style={{}}>
                         </div>
                     </div>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <div style={{ display: "flex", width: "60%", justifyContent: "space-between" }}>
 
+                        <div >Date: <strong>{selectDate}</strong></div>
+
+                        <div >All times displayed are local for each city</div>
+                    </div>
+                    <div style={{ display: "flex", gap:`20px` }}>
+                        <Link style={{ textDecoration: `underline` }}>Previous</Link>
+                        <Link>1</Link>
+                        <Link style={{ textDecoration: `underline` }}>Next</Link>
+                    </div>
+                    </div>
+                    <TenSpacer />
                     <div style={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
                         <div style={{ display: "flex", width: "74%", justifyContent: "space-between" }}>
-                            <div >Filter: showing all flights</div>
+                            <div >Filter: All flights</div>
                             <div >Sort by:</div>
                         </div>
-                        <div style={{ display: "flex", width: "25%" }} >
+                        <div style={{ display: "flex", }} >
                             <button>Price</button>
                             <button>Arrival Time</button>
                             <button>Departure Time</button>
                         </div>
                     </div>
+                    <TenSpacer />
                     {
                         demoData.map((item, index) => {
 
                             return (
-                                <div style={{ display: "flex", width: "100%", padding: "10px" }}>
+                                <>
+                                <div style={{ display: "flex", width: "100%", height: `13vh` }}>
                                     <div style={{ display: "flex", width: "25%", backgroundColor: "burlywood" }}>
 
                                         <span>{item.gateNumber}</span>
@@ -161,26 +181,27 @@ export default function BookTrip() {
                                         </div>
                                     </div>
 
-                                    <div style={{ display: "grid", width: "20%", backgroundColor: "lightgrey" }}>
+                                    <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
                                         {(item.ecoAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
                                         <span>Econamy</span>
                                         <span style={{ textAlign: "center" }}>R {item.ecoPrice}</span>
                                         <span style={{ textAlign: "center" }}>Purchase</span>
                                     </div>
-                                    <div style={{ display: "grid", width: "20%", backgroundColor: "lightgrey" }}>
+                                    <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
                                         {(item.busAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
                                         <span>Business</span>
                                         <span style={{ textAlign: "center" }}>R {item.busPrice}</span>
                                         <span style={{ textAlign: "center" }}>Purchase</span>
                                     </div>
 
-                                    <div style={{ display: "grid", width: "20%", backgroundColor: "lightgrey" }}>
+                                    <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
                                         {(item.firstAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
                                         <span>First</span>
                                         <span style={{ textAlign: "center" }}>R {item.firstPrice}</span>
                                         <span style={{ textAlign: "center" }}>Purchase</span>
                                     </div>
                                 </div>
+                                <TenSpacer /></>
                             )
                         })
                     }

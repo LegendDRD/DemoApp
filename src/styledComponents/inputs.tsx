@@ -29,3 +29,18 @@ export const ShortInput = styled.input`
     }
 `;
 
+export const FullWidthInput = styled.input`
+
+    width:100%;
+    padding: 10px;
+    border: 1px solid #0b2027;
+    border-radius: 5px;
+    &::placeholder {
+    padding-left: 5px;
+    }
+
+    :focus::placeholder {
+    color: transparent;
+    }
+`;
+

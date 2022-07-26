@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export default function PlanClassDropDown() {
     const [isOpenAri, setIsOpenAri] = useState(false);
     const togglingAri = () => setIsOpenAri(!isOpenAri);
-    const [selectedOption, setSelectedOption] = useState("Econamy Class");
+    const [selectedOption, setSelectedOption] = useState("Please select your ticket");
 
     const onOptionClicked = (value: any) => () => {
         setSelectedOption(value);
@@ -12,23 +12,21 @@ export default function PlanClassDropDown() {
         console.log(selectedOption);
     };
 
-    let Cities = ["Econamy Class", "Buisness Class", "First Class"]
+    let Cities = ["Economy Class", "Buisness Class", "First Class"]
 
     const DropDownContainer = styled("div")`
 
   `;
 
     const DropDownHeader = styled("div")`
-    margin-bottom: 0.8em;
-    padding: 0.4em 2em 0.4em 1em;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-    font-weight: 500;
-    font-size: 1.3rem;
-    color: #0c4e38;
-    border: 2px solid #0c4e38;
-    border-radius: 5px;
-    background: #ffffff;
-    box-shadow: 0 0.1rem 1rem rgba(10, 10, 10, 0.2);
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+      font-weight: 500;
+      font-size: 18px;
+      color: #0c4e38;
+      border: 1px solid #0c4e38;
+      box-shadow: 0 0.1rem 1rem rgba(10, 10, 10, 0.2);
+      width: 300px;
+      padding: 5px;
   `;
 
     const DropDownListContainer = styled("div")`

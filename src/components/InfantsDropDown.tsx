@@ -19,15 +19,14 @@ export default function InfantsDropDown() {
   `;
 
     const DropDownHeader = styled("div")`
-    margin-bottom: 0.8em;
-    padding: 0.4em 2em 0.4em 1em;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-    font-weight: 500;
-    font-size: 1.3rem;
-    color: #0c4e38;
-    border: 2px solid #0c4e38;
-    background: #ffffff;
-    box-shadow: 0 0.1rem 1rem rgba(10, 10, 10, 0.2);
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+      font-weight: 500;
+      font-size: 18px;
+      color: #0c4e38;
+      border: 1px solid #0c4e38;
+      box-shadow: 0 0.1rem 1rem rgba(10, 10, 10, 0.2);
+      padding: 5px;
+      width: 300px;
   `;
 
     const DropDownListContainer = styled("div")`
