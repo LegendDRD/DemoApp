@@ -2,19 +2,24 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import DemoCard from 'components/demo-card1';
+import bgimage1 from "../static/images/orgbg.png"
 
 // Icons
 import { FaHome, FaTaxi } from 'react-icons/fa'
-import { IoMdAirplane } from 'react-icons/io'
+import { IoMdAirplane, IoIosPersonAdd } from 'react-icons/io'
 import { BiTrain } from 'react-icons/bi'
 import { AiOutlineLogout } from 'react-icons/ai'
 
 // styled components
-import { CenterDiv, PaddingLeftDiv, LeftTableRow, Table, TableHeader, TableData, TableDataButtons } from "../styledComponents/centerDiv";
+import { CenterDiv, PaddingLeftDiv, LeftTableRow, Table, TableHeader, TableData1, TableData2, TableDataButtons, Header, FlexDivNormalSB } from "../styledComponents/centerDiv";
 import { Input } from "../styledComponents/inputs";
 import { TenSpacer, FortySpacer } from "../styledComponents/tenSpacer";
 import { NavP, H1 } from "../styledComponents/StyledText";
 import { HalfFilledButton, GreyFilledButton, HalfFilledButtonRed } from "../styledComponents/filledButton";
+import { ReactComponent as ReactLogo } from '../static/images/demo-logow.svg';
+import { BgImageC } from "../styledComponents/backgroundStyled";
+import { Link, Link2Green, Link2Red } from "../styledComponents/linkStyle";
 
 
 // Svg's
@@ -72,6 +77,7 @@ export default function Organisation() {
     margin-left: ${mainWidth};
     padding: 8px  16px;
     height: 1000px;
+    background-color: #f4f5fe;
   
   `;
     function logOut() {
@@ -89,11 +95,8 @@ export default function Organisation() {
             <Sidebar >
 
                 <div onClick={() => { setContentList(0); setMainWidth("300px") }}><FaHome style={{ color: "white", fontSize: '2rem' }} /></div>
-                <div onClick={() => { setContentList(1); setMainWidth("100px") }}><IoMdAirplane style={{ color: "white", fontSize: '2rem' }} /></div>
-                <div onClick={() => { setContentList(2); setMainWidth("100px") }}><BiTrain style={{ color: "white", fontSize: '2rem' }} /></div>
-                <div onClick={() => { setContentList(3); setMainWidth("100px") }}><FaTaxi style={{ color: "white", fontSize: '2rem' }} /></div>
 
-                <div onClick={() => { setShowAdd(true); }}><FaTaxi style={{ color: "white", fontSize: '2rem' }} /></div>
+                <div onClick={() => { setShowAdd(true); }}><IoIosPersonAdd style={{ color: "white", fontSize: '2rem' }} /></div>
 
                 <div style={{ position: "absolute", bottom: "0" }} ><AiOutlineLogout onClick={() => { logOut() }} style={{ cursor: "pointer", color: "white", fontSize: '2rem' }} /></div>
 
@@ -113,13 +116,13 @@ export default function Organisation() {
                         </Sidebar2>
 
                         <Content >
-                            <CenterDiv>
                                 <TenSpacer />
-                                <H1>Organisation Admin Page</H1>
-                                <p>Welcome to your Organisation Admin Page!<br />Here you can create and edit users within your organisation</p>
+                                <Header><FlexDivNormalSB><H1>Corporate Admin Page</H1></FlexDivNormalSB></Header>
                                 <TenSpacer />
                                 <TenSpacer />
-                            </CenterDiv>
+                            <DemoCard/>
+                            <TenSpacer />
+                                <TenSpacer />
                             <Table>
                                 <LeftTableRow>
                                     <TableHeader>Name</TableHeader>
@@ -129,30 +132,30 @@ export default function Organisation() {
                                     <TableHeader>Country</TableHeader>
                                     <TableHeader>Limit</TableHeader>
                                     <TableHeader>Created on</TableHeader>
+                                    <TableHeader>Edit</TableHeader>
+                                    <TableHeader>Delete</TableHeader>
                                 </LeftTableRow>
 
                                 {listUser.map((item: any, index) => {
                                     return (
                                         <>
                                             <tr>
-                                                <TableData>{item.name} </TableData>
-                                                <TableData>{item.surname}  </TableData>
-                                                <TableData>{item.email} </TableData>
-                                                <TableData>{item.residence}  </TableData>
-                                                <TableData>{item.country} </TableData>
-                                                <TableData>{item.limit}  </TableData>
-                                                <TableData> {item.created_at}   </TableData>
+                                                <TableData1>{item.name} </TableData1>
+                                                <TableData2>{item.surname}  </TableData2>
+                                                <TableData1>{item.email} </TableData1>
+                                                <TableData2>{item.residence}  </TableData2>
+                                                <TableData1>{item.country} </TableData1>
+                                                <TableData2>{item.limit}  </TableData2>
+                                                <TableData1> {item.created_at}   </TableData1>
                                                 {/* <div key={index} > </div> */}
-                                                <TableDataButtons><HalfFilledButton onClick={() => { setShow(true); setSelectedUser(item) }}>Edit</HalfFilledButton></TableDataButtons>
-                                                <TableDataButtons><HalfFilledButtonRed onClick={() => { userDelete(item) }}>Delete</HalfFilledButtonRed></TableDataButtons>
+                                                <TableData2><Link2Green onClick={() => { setShow(true); setSelectedUser(item) }}>Edit</Link2Green></TableData2>
+                                                <TableData1><Link2Red onClick={() => { userDelete(item) }}>Delete</Link2Red></TableData1>
                                             </tr>
                                         </>
                                     )
                                 })}
                             </Table>
-
                         </Content>
-
                     </>
                     : <></>
             }

@@ -4,6 +4,10 @@ import { FlexDiv } from 'styledComponents/centerDiv';
 import { Input, ShortInput } from 'styledComponents/inputs';
 import { ModalBody, ModalContent, Modalfooter, ModalMain, ModalTitle, ModalTopAndBottom } from 'styledComponents/modalStyled'
 import { TenSpacer } from 'styledComponents/tenSpacer';
+import { CenterDiv } from "../styledComponents/centerDiv";
+import { Link, Link2Green, Link2Red, Link2GreenB, Link2RedB } from "../styledComponents/linkStyle";
+
+import { ReactComponent as ReactLogo } from '../static/images/demo-logo.svg';
 
 export default function AddUserModal(props: any) {
 
@@ -50,15 +54,19 @@ export default function AddUserModal(props: any) {
             <ModalMain>
                 <ModalContent>
                     <ModalBody>
+                    <CenterDiv>
+                    <ReactLogo width="50%" fill="#0b2027"/>
+                        <p>Add a new user</p>
+                        </CenterDiv>
                         <FlexDiv>
                             <ShortInput type="name"
-                                placeholder="name"
+                                placeholder="Name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
 
                             <ShortInput type="surname"
-                                placeholder="surname"
+                                placeholder="Surname"
                                 value={surname}
                                 onChange={(e) => setSurname(e.target.value)}
                             />
@@ -66,49 +74,55 @@ export default function AddUserModal(props: any) {
                         <TenSpacer />
                         <FlexDiv>
                             <ShortInput type="mobile_no"
-                                placeholder="mobile_no"
+                                placeholder="Mobile Number"
                                 value={mobile_no}
                                 onChange={(e) => setMobile_no(e.target.value)}
                             />
 
                             <ShortInput type="residence"
-                                placeholder="residence"
+                                placeholder="Residence"
                                 value={residence}
                                 onChange={(e) => setResidence(e.target.value)}
                             />
                         </FlexDiv>
                         <TenSpacer />
-                        <Input type="country"
-                            placeholder="country"
+                        <FlexDiv>
+                        <ShortInput type="country"
+                            placeholder="Country"
                             value={country}
                             onChange={(e) => setCountry(e.target.value)}
                         />
-                        <TenSpacer />
-                        <Input autoFocus
-                            placeholder="email"
+                        <ShortInput autoFocus
+                            placeholder="Email"
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
+                        </FlexDiv>
                         <TenSpacer />
-                        <TenSpacer />
-                        <Input autoFocus
-                            placeholder="password"
+                        <FlexDiv>
+                        <ShortInput autoFocus
+                            placeholder="Password"
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
+                        <ShortInput autoFocus
+                            placeholder="Confirm Password"
+                            type="password"
+                        />
+                        </FlexDiv>
                         <TenSpacer />
 
 
                     </ModalBody>
                     <Modalfooter>
-                        <div onClick={() => userEditSubmit()} style={{ textDecoration: 'none' }}>
+                        <Link2GreenB onClick={() => userEditSubmit()} style={{ textDecoration: 'none' }}>
                             Save
-                        </div>
-                        <div onClick={props.onClose} style={{ textDecoration: 'none' }}>
+                        </Link2GreenB>
+                        <Link2RedB onClick={props.onClose} style={{ textDecoration: 'none' }}>
                             Exit
-                        </div>
+                        </Link2RedB>
                     </Modalfooter>
                 </ModalContent>
             </ModalMain>

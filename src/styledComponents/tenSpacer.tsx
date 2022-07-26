@@ -1,4 +1,10 @@
 import styled from "styled-components";
+
+export const ZeroSpacer = styled.div`
+
+height: 0px;
+`;
+
 export const TenSpacer = styled.div`
 
 height: 10px;

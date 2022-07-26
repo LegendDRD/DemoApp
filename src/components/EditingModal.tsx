@@ -4,6 +4,11 @@ import { FlexDiv } from 'styledComponents/centerDiv';
 import { Input, ShortInput } from 'styledComponents/inputs';
 import { ModalBody, ModalContent, Modalfooter, ModalMain, ModalTitle, ModalTopAndBottom } from 'styledComponents/modalStyled'
 import { TenSpacer } from 'styledComponents/tenSpacer';
+import { CenterDiv } from "../styledComponents/centerDiv";
+import { BgImageC } from "../styledComponents/backgroundStyled";
+import { Link, Link2Green, Link2Red, Link2GreenB, Link2RedB } from "../styledComponents/linkStyle";
+
+import { ReactComponent as ReactLogo } from '../static/images/demo-logo.svg';
 
 export default function EditingModal(props: any) {
 
@@ -53,6 +58,10 @@ export default function EditingModal(props: any) {
             <ModalMain>
                 <ModalContent>
                     <ModalBody>
+                    <CenterDiv>
+                    <ReactLogo width="50%" fill="#0b2027"/>
+                        <p>Edit this user.</p>
+                        </CenterDiv>
                         <FlexDiv>
                             <ShortInput type="name"
                                 placeholder={props.info.name}
@@ -81,29 +90,30 @@ export default function EditingModal(props: any) {
                             />
                         </FlexDiv>
                         <TenSpacer />
-                        <Input type="country"
+                        <FlexDiv>
+                        <ShortInput type="country"
                             placeholder={props.info.country}
                             value={country}
                             onChange={(e) => setCountry(e.target.value)}
                         />
-                        <TenSpacer />
-                        <Input autoFocus
+                        <ShortInput autoFocus
                             placeholder={props.info.email}
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
+                        </FlexDiv>
                         <TenSpacer />
 
 
                     </ModalBody>
                     <Modalfooter>
-                        <div onClick={() => userEditSubmit()} style={{ textDecoration: 'none' }}>
+                        <Link2GreenB onClick={() => userEditSubmit()} style={{ textDecoration: 'none' }}>
                             Save
-                        </div>
-                        <div onClick={props.onClose} style={{ textDecoration: 'none' }}>
+                        </Link2GreenB>
+                        <Link2RedB onClick={props.onClose} style={{ textDecoration: 'none' }}>
                             Exit
-                        </div>
+                        </Link2RedB>
                     </Modalfooter>
                 </ModalContent>
             </ModalMain>
