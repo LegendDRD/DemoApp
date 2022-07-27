@@ -187,15 +187,15 @@ export default function BookTrip() {
                                                 </BgImageB>
                                             </div>
 
-                                            <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
+                                            <div style={{ display: "grid", width: "25%" }}>
                                                 <EconamyCard item={item} class={"Economy"} avi={item.ecoAvi} />
 
                                             </div>
-                                            <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
+                                            <div style={{ display: "grid", width: "25%" }}>
                                                 <EconamyCard item={item} class={"Business"} avi={item.busAvi} />
                                             </div>
 
-                                            <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
+                                            <div style={{ display: "grid", width: "25%" }}>
                                                 <EconamyCard item={item} class={"First"} avi={item.firstAvi} />
                                             </div>
                                         </div>

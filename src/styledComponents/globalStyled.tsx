@@ -2,6 +2,17 @@ import styled from "styled-components";
 // import backgroundUrl from '../static/Images/blackholeV1.webp'
 import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+
+export const TicketCard = styled.div`
+
+width: 100%;
+ height: 100%;
+ display: grid;
+ &:hover{
+    background: linear-gradient(to top,  #3ac22d,#3ac22d10,#3ac22d30);
+ }
+`;
+
 export const ProfileStyled = styled.div`
     position: absolute;
     left: 0;
