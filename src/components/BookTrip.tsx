@@ -16,7 +16,7 @@ import { Link, Link2Green, Link2Red } from "../styledComponents/linkStyle";
 
 import { NavP, H1, Header } from "../styledComponents/StyledText";
 import { Input, FullWidthInput } from "../styledComponents/inputs";
-import EconamyCard from './EconamyCard';
+import EconamyCard from './TicketCard';
 
 export default function BookTrip() {
     // const [startDate, setStartDate] = useState(new Date());
@@ -73,7 +73,7 @@ export default function BookTrip() {
         busPrice: 50000,
         busAvi: true,
         firstPrice: 120000,
-        firstAvi: false,
+        firstAvi: true,
 
     }]
 
@@ -190,31 +190,15 @@ export default function BookTrip() {
                                             </div>
 
                                             <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
-                                                {(item.ecoAvi) ?
-                                                    <EconamyCard item={item} />
-                                                    :
-                                                    <>
-                                                        <div style={{ height: "5px", backgroundColor: "grey" }} />
-                                                        <span>Econamy</span>
-                                                        <span style={{ textAlign: "center" }}>No Business Class Avaliable</span>
-                                                    </>
-
-
-                                                }
+                                                <EconamyCard item={item} class={"Economy"} avi={item.ecoAvi} />
 
                                             </div>
                                             <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
-                                                {(item.busAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
-                                                <span>Business</span>
-                                                <span style={{ textAlign: "center" }}>R {item.busPrice}</span>
-                                                <span style={{ textAlign: "center" }}>Purchase</span>
+                                                <EconamyCard item={item} class={"Business"} avi={item.busAvi} />
                                             </div>
 
                                             <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
-                                                {(item.firstAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
-                                                <span>First</span>
-                                                <span style={{ textAlign: "center" }}>R {item.firstPrice}</span>
-                                                <span style={{ textAlign: "center" }}>Purchase</span>
+                                                <EconamyCard item={item} class={"First"} avi={item.firstAvi} />
                                             </div>
                                         </div>
                                         <TenSpacer /></>
