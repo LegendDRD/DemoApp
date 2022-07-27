@@ -8,15 +8,13 @@ import InfantsDropDown from './InfantsDropDown';
 import PlanClassDropDown from './PlanClassDropDown';
 import { GiAirplaneDeparture } from 'react-icons/gi';
 
-import TitleCard from "../static/images/demo-card-title.svg"
-import TitleCard2 from "../static/images/demo-card-title-copy.svg"
-
 import { TenSpacer, FortySpacer } from "../styledComponents/tenSpacer";
 import { Link, Link2Green, Link2Red } from "../styledComponents/linkStyle";
 
 import { NavP, H1, Header } from "../styledComponents/StyledText";
 import { Input, FullWidthInput } from "../styledComponents/inputs";
 import EconamyCard from './TicketCard';
+import { BgImageB } from "../styledComponents/backgroundStyled";
 
 export default function BookTrip() {
     // const [startDate, setStartDate] = useState(new Date());
@@ -183,10 +181,10 @@ export default function BookTrip() {
                                                     <span>{item.gateNumber}</span>
                                                     <span>{item.airlineName}</span>
                                                 </div>
-                                                <div>
-                                                    <span style={{ textAlign: "center", paddingTop: "15px" }}>Arrival TIme {item.arrival}</span>
-                                                    <span style={{ textAlign: "center", }}>Departure Time {item.departure}</span>
-                                                </div>
+                                                <BgImageB>
+                                                    {/* <span style={{ textAlign: "center", paddingTop: "15px" }}>Arrival TIme {item.arrival}</span>
+                                                    <span style={{ textAlign: "center", }}>Departure Time {item.departure}</span> */}
+                                                </BgImageB>
                                             </div>
 
                                             <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
