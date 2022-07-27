@@ -199,6 +199,7 @@ export default function BookTrip() {
                                                 <EconamyCard item={item} class={"First"} avi={item.firstAvi} />
                                             </div>
                                         </div>
+                                        <TenSpacer />
                                         <TenSpacer /></>
                                 )
                             })

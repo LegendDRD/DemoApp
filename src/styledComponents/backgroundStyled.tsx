@@ -34,8 +34,9 @@ export const BgImageB = styled.div`
 
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-image: url(${bgimage12});
-    height: 86px
+    height: 90px;
+    width: 100%;
 `;
 
