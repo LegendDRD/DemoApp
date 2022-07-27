@@ -16,10 +16,14 @@ import { Link, Link2Green, Link2Red } from "../styledComponents/linkStyle";
 
 import { NavP, H1, Header } from "../styledComponents/StyledText";
 import { Input, FullWidthInput } from "../styledComponents/inputs";
+import EconamyCard from './EconamyCard';
 
 export default function BookTrip() {
     // const [startDate, setStartDate] = useState(new Date());
     const [selectDate, setSelectDate] = useState(new Date().toDateString());
+    const [showData, setShowData] = useState(false);
+    const [payModel, setpayModel] = useState(false)
+
     let demoData = [{
         airlineName: "Asiana Airlines",
         gateNumber: "01",
@@ -104,7 +108,7 @@ export default function BookTrip() {
                     <h1 style={{ width: "100%" }}>1. Book Your Trip</h1>
                     <div style={{ display: "flex", gap: `20px` }}>
                         <div style={{ width: "100%" }}>
-                            <CurrentCityDropDown />
+                            <CurrentCityDropDown show={() => { setShowData(true) }} hide={() => { setShowData(false) }} />
                         </div>
                         <div style={{ width: "100%" }}>
                             <DestinationCityDropDown />
@@ -166,16 +170,18 @@ export default function BookTrip() {
                         </div>
                     </div>
                     <TenSpacer />
-                    {
-                        demoData.map((item, index) => {
+                    {(showData) ? <div>
 
-                            return (
-                                <>
-                                    <div style={{ display: "flex", width: "100%", height: `13vh` }}>
-                                        <div style={{ width: "25%", backgroundColor: "burlywood" }}>
-                                            <div style={{ display: "flex", gap: "20%", padding: "15px", fontSize: `20px`, fontWeight: "400", backgroundColor: "#0c3628", color: `white`}}>
-                                                <span>{item.gateNumber}</span>
-                                                <span>{item.airlineName}</span>
+                        {
+                            demoData.map((item, index) => {
+
+                                return (
+                                    <>
+                                        <div style={{ display: "flex", width: "100%", height: `13vh` }}>
+                                            <div style={{ width: "25%", backgroundColor: "burlywood" }}>
+                                                <div style={{ display: "flex", gap: "20%", padding: "15px", fontSize: `20px`, fontWeight: "400", backgroundColor: "#0c3628", color: `white` }}>
+                                                    <span>{item.gateNumber}</span>
+                                                    <span>{item.airlineName}</span>
                                                 </div>
                                                 <div>
                                                     <span style={{ textAlign: "center", paddingTop: "15px" }}>Arrival TIme {item.arrival}</span>
@@ -184,10 +190,18 @@ export default function BookTrip() {
                                             </div>
 
                                             <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
-                                                {(item.ecoAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
-                                                <span>Economy</span>
-                                                <span style={{ textAlign: "center" }}>R {item.ecoPrice}</span>
-                                                <span style={{ textAlign: "center" }}>Purchase</span>
+                                                {(item.ecoAvi) ?
+                                                    <EconamyCard item={item} />
+                                                    :
+                                                    <>
+                                                        <div style={{ height: "5px", backgroundColor: "grey" }} />
+                                                        <span>Econamy</span>
+                                                        <span style={{ textAlign: "center" }}>No Business Class Avaliable</span>
+                                                    </>
+
+
+                                                }
+
                                             </div>
                                             <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
                                                 {(item.busAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
@@ -204,17 +218,21 @@ export default function BookTrip() {
                                             </div>
                                         </div>
                                         <TenSpacer /></>
-                                    )
-                        })
-                    }
+                                )
+                            })
+                        }
+                    </div> :
+                        <>
+                            <h2>No Flights</h2>
+                        </>}
 
 
-                                </div>
+                </div>
 
 
 
             </div>
 
-            </>
-            )
+        </>
+    )
 }

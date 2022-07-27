@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 
-export default function CurrentCityDropDown() {
+export default function CurrentCityDropDown(props: any) {
     const [isOpenAri, setIsOpenAri] = useState(false);
     const togglingAri = () => setIsOpenAri(!isOpenAri);
     const [selectedOption, setSelectedOption] = useState(null);
 
-    const onOptionClicked = (value: any) => () => {
+    function onOptionClicked1(value: any) {
         setSelectedOption(value);
         setIsOpenAri(false);
         console.log(selectedOption);
-    };
+    }
 
-    let Cities = ["Johannesburg (JNB)", "Cape Town (CPT)", "Bloemfontein (BFN)", "Durban (DUR)", "Skukuza (SZK)" ]
+    let Cities = ["Johannesburg (JNB)", "Cape Town (CPT)", "Bloemfontein (BFN)", "Durban (DUR)", "Skukuza (SZK)"]
 
     const DropDownContainer = styled("div")`
 
@@ -66,9 +66,17 @@ export default function CurrentCityDropDown() {
                     <DropDownListContainer>
                         <DropDownList>
                             {Cities.map((option: any) => (
-                                <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                                    {option}
-                                </ListItem>
+                                <>
+                                    {(option === "Johannesburg (JNB)") ? <ListItem onClick={() => { onOptionClicked1(option); props.show(); }} key={Math.random()}>
+                                        {option}
+                                    </ListItem>
+                                        :
+                                        <ListItem onClick={() => { onOptionClicked1(option); props.hide(); }} key={Math.random()}>
+                                            {option}
+                                        </ListItem>
+                                    }
+                                </>
+
                             ))}
                         </DropDownList>
                     </DropDownListContainer>

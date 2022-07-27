@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export default function ChildrenDropDown() {
     const [isOpenAri, setIsOpenAri] = useState(false);
     const togglingAri = () => setIsOpenAri(!isOpenAri);
-    const [selectedOption, setSelectedOption] = useState(1);
+    const [selectedOption, setSelectedOption] = useState(0);
 
     const onOptionClicked = (value: any) => () => {
         setSelectedOption(value);
@@ -12,7 +12,7 @@ export default function ChildrenDropDown() {
         console.log(selectedOption);
     };
 
-    let Cities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    let Cities = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
     const DropDownContainer = styled("div")`
 
