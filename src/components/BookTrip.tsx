@@ -8,10 +8,13 @@ import InfantsDropDown from './InfantsDropDown';
 import PlanClassDropDown from './PlanClassDropDown';
 import { GiAirplaneDeparture } from 'react-icons/gi';
 
+import TitleCard from "../static/images/demo-card-title.svg"
+import TitleCard2 from "../static/images/demo-card-title-copy.svg"
+
 import { TenSpacer, FortySpacer } from "../styledComponents/tenSpacer";
 import { Link, Link2Green, Link2Red } from "../styledComponents/linkStyle";
 
-import { NavP, H1,Header } from "../styledComponents/StyledText";
+import { NavP, H1, Header } from "../styledComponents/StyledText";
 import { Input, FullWidthInput } from "../styledComponents/inputs";
 
 export default function BookTrip() {
@@ -120,9 +123,9 @@ export default function BookTrip() {
 
                         <div style={{ padding: '20px' }}>
 
-                       <Header style={{ color: 'white', textAlign: "center" }} > <GiAirplaneDeparture style={{ fontSize: "2rem", paddingRight: "10px" }} />Departure Date</Header>
-                       <TenSpacer />
-                       <FullWidthInput onChange={(e: any) => setSelectDate(e.target.value)} type={"date"} />
+                            <Header style={{ color: 'white', textAlign: "center" }} > <GiAirplaneDeparture style={{ fontSize: "2rem", paddingRight: "10px" }} />Departure Date</Header>
+                            <TenSpacer />
+                            <FullWidthInput onChange={(e: any) => setSelectDate(e.target.value)} type={"date"} />
 
                         </div>
                         <div style={{ padding: '20px' }}>
@@ -133,22 +136,22 @@ export default function BookTrip() {
                     </div>
                     <FortySpacer />
                     <div style={{ width: "100%", textAlign: "center", display: "flex", gap: `5px` }}>
-                        <div style={{ width: "100%", height: "2px", background: "black", top: "23px" }} /><h2 style={{ width: "30%", textAlign: "center", fontSize: "30px", marginTop:`-18px` }}>OutBound</h2><div style={{ width: "100%", height: "2px", background: "black" }} />
+                        <div style={{ width: "100%", height: "2px", background: "black", top: "23px" }} /><h2 style={{ width: "30%", textAlign: "center", fontSize: "30px", marginTop: `-18px` }}>OutBound</h2><div style={{ width: "100%", height: "2px", background: "black" }} />
                         <div style={{}}>
                         </div>
                     </div>
                     <div style={{ display: "flex", justifyContent: "space-between" }}>
-                    <div style={{ display: "flex", width: "60%", justifyContent: "space-between" }}>
+                        <div style={{ display: "flex", width: "60%", justifyContent: "space-between" }}>
 
-                        <div >Date: <strong>{selectDate}</strong></div>
+                            <div >Date: <strong>{selectDate}</strong></div>
 
-                        <div >All times displayed are local for each city</div>
-                    </div>
-                    <div style={{ display: "flex", gap:`20px` }}>
-                        <Link style={{ textDecoration: `underline` }}>Previous</Link>
-                        <Link>1</Link>
-                        <Link style={{ textDecoration: `underline` }}>Next</Link>
-                    </div>
+                            <div >All times displayed are local for each city</div>
+                        </div>
+                        <div style={{ display: "flex", gap: `20px` }}>
+                            <Link style={{ textDecoration: `underline` }}>Previous</Link>
+                            <Link>1</Link>
+                            <Link style={{ textDecoration: `underline` }}>Next</Link>
+                        </div>
                     </div>
                     <TenSpacer />
                     <div style={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
@@ -156,10 +159,10 @@ export default function BookTrip() {
                             <div >Filter: All flights</div>
                             <div >Sort by:</div>
                         </div>
-                        <div style={{ display: "flex", }} >
-                            <button>Price</button>
-                            <button>Arrival Time</button>
-                            <button>Departure Time</button>
+                        <div style={{ display: "flex", gap: `20px` }} >
+                            <Link>Price</Link>
+                            <Link>Arrival Time</Link>
+                            <Link>Departure Time</Link>
                         </div>
                     </div>
                     <TenSpacer />
@@ -168,50 +171,50 @@ export default function BookTrip() {
 
                             return (
                                 <>
-                                <div style={{ display: "flex", width: "100%", height: `13vh` }}>
-                                    <div style={{ display: "flex", width: "25%", backgroundColor: "burlywood" }}>
+                                    <div style={{ display: "flex", width: "100%", height: `13vh` }}>
+                                        <div style={{ width: "25%", backgroundColor: "burlywood" }}>
+                                            <div style={{ display: "flex", gap: "20%", padding: "15px", fontSize: `20px`, fontWeight: "400", backgroundColor: "#0c3628", color: `white`}}>
+                                                <span>{item.gateNumber}</span>
+                                                <span>{item.airlineName}</span>
+                                                </div>
+                                                <div>
+                                                    <span style={{ textAlign: "center", paddingTop: "15px" }}>Arrival TIme {item.arrival}</span>
+                                                    <span style={{ textAlign: "center", }}>Departure Time {item.departure}</span>
+                                                </div>
+                                            </div>
 
-                                        <span>{item.gateNumber}</span>
-                                        <span>{item.airlineName}</span>
+                                            <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
+                                                {(item.ecoAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
+                                                <span>Economy</span>
+                                                <span style={{ textAlign: "center" }}>R {item.ecoPrice}</span>
+                                                <span style={{ textAlign: "center" }}>Purchase</span>
+                                            </div>
+                                            <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
+                                                {(item.busAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
+                                                <span>Business</span>
+                                                <span style={{ textAlign: "center" }}>R {item.busPrice}</span>
+                                                <span style={{ textAlign: "center" }}>Purchase</span>
+                                            </div>
 
-                                        <div style={{ display: "grid", backgroundColor: "lightgrey" }}>
-                                            <span style={{ textAlign: "center", paddingTop: "15px" }}>Arrival TIme {item.arrival}</span>
-                                            <span style={{ textAlign: "center" }}>Departure Time {item.departure}</span>
+                                            <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
+                                                {(item.firstAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
+                                                <span>First</span>
+                                                <span style={{ textAlign: "center" }}>R {item.firstPrice}</span>
+                                                <span style={{ textAlign: "center" }}>Purchase</span>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
-                                        {(item.ecoAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
-                                        <span>Econamy</span>
-                                        <span style={{ textAlign: "center" }}>R {item.ecoPrice}</span>
-                                        <span style={{ textAlign: "center" }}>Purchase</span>
-                                    </div>
-                                    <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
-                                        {(item.busAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
-                                        <span>Business</span>
-                                        <span style={{ textAlign: "center" }}>R {item.busPrice}</span>
-                                        <span style={{ textAlign: "center" }}>Purchase</span>
-                                    </div>
-
-                                    <div style={{ display: "grid", width: "25%", backgroundColor: "lightgrey" }}>
-                                        {(item.firstAvi) ? <div style={{ height: "5px", backgroundColor: "green" }} /> : <div style={{ height: "5px", backgroundColor: "grey" }} />}
-                                        <span>First</span>
-                                        <span style={{ textAlign: "center" }}>R {item.firstPrice}</span>
-                                        <span style={{ textAlign: "center" }}>Purchase</span>
-                                    </div>
-                                </div>
-                                <TenSpacer /></>
-                            )
+                                        <TenSpacer /></>
+                                    )
                         })
                     }
 
 
-                </div>
+                                </div>
 
 
 
             </div>
 
-        </>
-    )
+            </>
+            )
 }
