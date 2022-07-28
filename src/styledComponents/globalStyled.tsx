@@ -345,6 +345,7 @@ export const BaseBtn = styled.a`
     display: flex;
     align-items: center;
     border-radius: 10%;
+    gap: 10px;
 `;
 export const BaseBtnLink = styled.div`
     border-radius: 50px;
