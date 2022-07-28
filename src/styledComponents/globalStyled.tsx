@@ -8,8 +8,19 @@ export const TicketCard = styled.div`
 width: 100%;
  height: 100%;
  display: grid;
+ box-shadow:  0 2px 3px rgba(0, 0, 0, 0.15);
  &:hover{
-    background: linear-gradient(to top,  #3ac22d,#3ac22d10,#3ac22d30);
+    background: linear-gradient(to top,  #23701c,#3ac22d01,#3ac22d01,#3ac22d01,#3ac22d01,#3ac22d01,#3ac22d01,#3ac22d01,#3ac22d01,#3ac22d01);
+ }
+`;
+export const GreyTicketCard = styled.div`
+
+width: 100%;
+ height: 100%;
+ display: grid;
+ box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+ &:hover{
+    background: linear-gradient(to top,  #313131,#3ac22d01,#3ac22d01,#3ac22d01,#3ac22d01,#3ac22d01,#3ac22d01,#3ac22d01,#3ac22d01,#3ac22d01);
  }
 `;
 

@@ -57,7 +57,7 @@ export default function PlanClassDropDown() {
      `;
     return (
         <>
-            <DropDownContainer>
+            {/* <DropDownContainer>
                 <DropDownHeader onClick={togglingAri}>
                     {selectedOption}
                 </DropDownHeader>
@@ -72,7 +72,7 @@ export default function PlanClassDropDown() {
                         </DropDownList>
                     </DropDownListContainer>
                 )}
-            </DropDownContainer>
+            </DropDownContainer> */}
         </>
     )
 }

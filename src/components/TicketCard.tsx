@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TicketCard } from 'styledComponents/globalStyled'
+import { TicketCard, GreyTicketCard } from 'styledComponents/globalStyled'
 import GalleryModal from './GalleryModal'
 
 export default function EconamyCard(props: any) {
@@ -20,9 +20,15 @@ export default function EconamyCard(props: any) {
                 </div>
                 :
                 <>
-                    <div style={{ height: "5px", backgroundColor: "grey" }} />
-                    <span>{props.class}</span>
-                    <span style={{ textAlign: "center" }}>No {props.class} Class Avaliable</span>
+
+                    <div>
+                        <GreyTicketCard onClick={() => setpayModel(true)} >
+                            <div style={{ height: "5px", backgroundColor: "grey" }} />
+                            <span>{props.class}</span>
+                            <span style={{ textAlign: "center" }}>No {props.class} Class Avaliable</span>
+                            <span style={{ textAlign: "center" }}> </span>
+                        </GreyTicketCard>
+                    </div>
                 </>
 
             }
