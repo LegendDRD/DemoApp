@@ -10,7 +10,7 @@ export default function EconamyCard(props: any) {
         <>
             <GalleryModal info={props.item} people={props} price={props.item.ecoPrice} show={payModel} onClose={() => setpayModel(false)}></GalleryModal>
             {(props.avi) ?
-                <div>
+                <div style={{ height: "120px" }}>
                     <div style={{ height: "5px", backgroundColor: "green" }} />
                     <TicketCard onClick={() => setpayModel(true)} >
                         <span>{props.class}</span>
@@ -21,7 +21,7 @@ export default function EconamyCard(props: any) {
                 :
                 <>
 
-                    <div>
+                    <div style={{ height: "125px" }}>
                         <GreyTicketCard onClick={() => setpayModel(true)} >
                             <div style={{ height: "5px", backgroundColor: "grey" }} />
                             <span>{props.class}</span>
