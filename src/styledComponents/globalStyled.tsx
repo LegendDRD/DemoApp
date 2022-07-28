@@ -363,8 +363,8 @@ export const BaseBtnLink = styled.div`
     &:hover {
 
     transition: all 0.2s ease-in-out;
-    color: #31f72a;
-    border: 1px solid #31f72a !important;
+    color: blue;
+    border: 1px solid blue !important;
 }
 `;
 export const BaseBtnLinkRed = styled.div`
@@ -389,6 +389,8 @@ export const BaseBtnLinkRed = styled.div`
 
 }
 `;
+
+
 export const BaseBtnLinkPurple = styled.div`
     border-radius: 50px;
     border: 1px solid #1d1d1d !important;
