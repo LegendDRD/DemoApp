@@ -14,6 +14,7 @@ export default function User() {
 
     const [auth, setAuth] = useState(false);
     const nav = useNavigate();
+
     const [mainWidth, setMainWidth] = useState("300px");
     useEffect(() => {
         console.log(localStorage.getItem('Auth'))
@@ -53,7 +54,7 @@ export default function User() {
                 (contentList === 0) ?
                     <>
                         <Sidebar2 >
-                        <a href="#" onClick={() => setContentList(0)}><FaPlaneDeparture style={{ color: "white", fontSize: '1rem' }} /><NavP>Users</NavP></a>
+                            <a href="#" onClick={() => setContentList(0)}><FaPlaneDeparture style={{ color: "white", fontSize: '1rem' }} /><NavP>Users</NavP></a>
                         </Sidebar2>
 
                         <Content >

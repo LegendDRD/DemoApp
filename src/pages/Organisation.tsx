@@ -116,13 +116,13 @@ export default function Organisation() {
                         </Sidebar2>
 
                         <Content >
-                                <TenSpacer />
-                                <Header><FlexDivNormalSB><H1>Corporate Admin Page</H1></FlexDivNormalSB></Header>
-                                <TenSpacer />
-                                <TenSpacer />
-                            <DemoCard/>
                             <TenSpacer />
-                                <TenSpacer />
+                            <Header><FlexDivNormalSB><H1>Corporate Admin Page</H1></FlexDivNormalSB></Header>
+                            <TenSpacer />
+                            <TenSpacer />
+                            <DemoCard usercount={listUser.length} />
+                            <TenSpacer />
+                            <TenSpacer />
                             <Table>
                                 <LeftTableRow>
                                     <TableHeader>Name</TableHeader>

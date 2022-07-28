@@ -27,6 +27,9 @@ export default function GalleryModal(props: any) {
                             <span>departure: {props.info.departure}</span>
                             <span>Prive: {props.price}</span>
                             <span>Gate number: {props.info.gateNumber}</span>
+                            <span>Adult count {props.people.adult}</span>
+                            <span>Children number: {props.people.children}</span>
+                            <span>Infants number: {props.people.infant}</span>
 
                         </div>
 

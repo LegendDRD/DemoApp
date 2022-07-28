@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 
-export default function InfantsDropDown() {
+export default function InfantsDropDown(props: any) {
     const [isOpenAri, setIsOpenAri] = useState(false);
     const togglingAri = () => setIsOpenAri(!isOpenAri);
     const [selectedOption, setSelectedOption] = useState(0);
 
-    const onOptionClicked = (value: any) => () => {
+    // const onOptionClicked = (value: any) => () => {
+    //     setSelectedOption(value);
+    //     setIsOpenAri(false);
+    //     console.log(selectedOption);
+    // };
+
+    function onOptionClicked(value: any) {
         setSelectedOption(value);
         setIsOpenAri(false);
         console.log(selectedOption);
-    };
+    }
 
     let Cities = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -67,7 +73,7 @@ export default function InfantsDropDown() {
                     <DropDownListContainer>
                         <DropDownList>
                             {Cities.map((option: any) => (
-                                <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
+                                <ListItem onClick={() => { onOptionClicked(option); props.infant(option) }} key={Math.random()}>
                                     {option}
                                 </ListItem>
                             ))}

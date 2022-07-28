@@ -20,7 +20,11 @@ export default function BookTrip() {
     // const [startDate, setStartDate] = useState(new Date());
     const [selectDate, setSelectDate] = useState(new Date().toDateString());
     const [showData, setShowData] = useState(false);
-    const [payModel, setpayModel] = useState(false)
+    // const [payModel, setpayModel] = useState(false);
+
+    const [adult, setAdult] = useState(0);
+    const [children, setChildren] = useState(0);
+    const [infant, setInfant] = useState(0);
 
     let demoData = [{
         airlineName: "Asiana Airlines",
@@ -103,7 +107,7 @@ export default function BookTrip() {
                     </div>
                 </div> */}
                 <div style={{ width: "100%" }}>
-                    <h1 style={{ width: "100%" }}>1. Book Your Trip</h1>
+                    <h1 style={{ width: "100%" }}>1. Book Your Trip </h1>
                     <div style={{ display: "flex", gap: `20px` }}>
                         <div style={{ width: "100%" }}>
                             <CurrentCityDropDown show={() => { setShowData(true) }} hide={() => { setShowData(false) }} />
@@ -114,9 +118,9 @@ export default function BookTrip() {
                     </div>
                     <TenSpacer />
                     <div style={{ display: "flex", width: "100%", gap: "10px" }}>
-                        <AdultDropDown />
-                        <ChildrenDropDown />
-                        <InfantsDropDown />
+                        <AdultDropDown adult={(info: any) => { setAdult(info) }} />
+                        <ChildrenDropDown children={(info: any) => { setChildren(info) }} />
+                        <InfantsDropDown infant={(info: any) => { setInfant(info) }} />
                         <PlanClassDropDown />
 
                     </div>
@@ -188,15 +192,15 @@ export default function BookTrip() {
                                             </div>
 
                                             <div style={{ display: "grid", width: "25%" }}>
-                                                <EconamyCard item={item} class={"Economy"} avi={item.ecoAvi} />
+                                                <EconamyCard item={item} adult={adult} children={children} infant={infant} class={"Economy"} avi={item.ecoAvi} />
 
                                             </div>
                                             <div style={{ display: "grid", width: "25%" }}>
-                                                <EconamyCard item={item} class={"Business"} avi={item.busAvi} />
+                                                <EconamyCard item={item} adult={adult} children={children} infant={infant} class={"Business"} avi={item.busAvi} />
                                             </div>
 
                                             <div style={{ display: "grid", width: "25%" }}>
-                                                <EconamyCard item={item} class={"First"} avi={item.firstAvi} />
+                                                <EconamyCard item={item} adult={adult} children={children} infant={infant} class={"First"} avi={item.firstAvi} />
                                             </div>
                                         </div>
                                         <TenSpacer />
